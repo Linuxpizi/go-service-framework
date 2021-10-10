@@ -1,7 +1,10 @@
 package logger
 
 import (
+	"os"
 	"testing"
+
+	"go.uber.org/zap"
 )
 
 func TestInit(t *testing.T) {
@@ -18,9 +21,28 @@ func TestInit(t *testing.T) {
 	}
 
 	if sugar != nil {
-		sugar.Infow("test for logger infow",
-			"file", logFile)
-		sugar.Infof("test for logger infof %v",
-			logFile)
+		sugar.Info("test for logger infow",
+			zap.String("file", logFile),
+		)
 	}
+
+	sugar.Info("test for logger infof",
+		zap.String("file", logFile),
+	)
+
+	f := func() int {
+		f, err := os.Open("xx")
+		if err != nil {
+			sugar.Error("open file",
+				zap.String("filename", "xx"),
+				zap.Error(err),
+			)
+		}
+		defer f.Close()
+		return 0
+	}
+	sugar.Error("test for logger infof",
+		zap.String("file", logFile),
+		zap.Int("res", f()),
+	)
 }

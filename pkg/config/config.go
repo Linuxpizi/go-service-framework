@@ -22,6 +22,7 @@ import (
 const (
 	KeyLogDir         = "logdir"
 	KeyAppID          = "appid"
+	KeyENV            = "env" // dev,prod
 	KeyServiceID      = "serviceid"
 	KeyHostname       = "hostname"
 	KeyHTTPPort       = "http_port"
@@ -131,6 +132,8 @@ func GetStringValueWithNameSpace(namespace, key string) string {
 
 func getLocalValue(key string) (interface{}, bool) {
 	switch key {
+	case KeyENV:
+		fallthrough //nolint
 	case KeyLogDir:
 		fallthrough //nolint
 	case KeyHostname:

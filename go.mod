@@ -20,12 +20,16 @@ require (
 	github.com/shopspring/decimal v1.3.1
 	github.com/spf13/viper v1.9.0
 	github.com/streadway/amqp v1.0.0
-	github.com/stretchr/testify v1.7.0
+	github.com/stretchr/testify v1.7.1
 	github.com/urfave/cli/v2 v2.3.0
+	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.31.0
+	go.opentelemetry.io/otel v1.6.3
+	go.opentelemetry.io/otel/exporters/jaeger v1.6.3
+	go.opentelemetry.io/otel/sdk v1.6.3
 	go.uber.org/zap v1.19.1
 	golang.org/x/net v0.0.0-20211029224645-99673261e6eb // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1
-	google.golang.org/grpc v1.40.0
+	google.golang.org/grpc v1.45.0
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
 	gopkg.in/yaml.v2 v2.4.0
 )
